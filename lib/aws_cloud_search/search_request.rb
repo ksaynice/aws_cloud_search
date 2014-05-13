@@ -1,7 +1,7 @@
 module AWSCloudSearch
   class SearchRequest
 
-    attr_accessor :q, :bq, :rank, :results_type, :return_fields, :size, :start, :facet
+    attr_accessor :q, :bq, :options, :rank, :results_type, :return_fields, :size, :start, :facet
     attr_accessor :facet_constraints, :facet_sort, :facet_top_n, :t
 
     def initialize
@@ -59,8 +59,9 @@ module AWSCloudSearch
     # @return [Hash] The object converted to a Hash
     def to_hash
       hash = {}
-      hash['q']     = @q unless @q.nil?
-      hash['bq']    = @bq unless @bq.nil?
+      hash['q']            = @q unless @q.nil?
+      hash['bq']           = @bq unless @bq.nil?
+      hash['q.options']    = @options unless @options.nil?
       hash['rank']  = @rank unless @rank.nil?
       hash['size']  = @size unless @size.nil?
       hash['start'] = @start unless @start.nil?

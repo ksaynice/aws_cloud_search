@@ -35,6 +35,10 @@ module AWSCloudSearch
       resp = @search_conn.get do |req|
         req.url "/#{AWSCloudSearch::API_VERSION}/search", search_req.to_hash
       end
+      puts "=============="
+      puts "request URL"
+      puts resp.env[:url]
+      puts "=============="
 
       search_response = SearchResponse.new(resp.body)
       if search_response.error
