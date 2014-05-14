@@ -61,7 +61,7 @@ module AWSCloudSearch
       hash = {}
       hash['q']            = @q unless @q.nil?
       hash['bq']           = @bq unless @bq.nil?
-      hash['q.options']    = @options unless @options.nil?
+      hash['q.options']    = @options.to_json unless @options.nil?
       hash['rank']  = @rank unless @rank.nil?
       hash['size']  = @size unless @size.nil?
       hash['start'] = @start unless @start.nil?
